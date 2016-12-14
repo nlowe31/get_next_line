@@ -6,9 +6,11 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 16:52:38 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/12 17:01:41 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/14 17:05:30 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 const char	*strchr(const char *s, int c)
 {

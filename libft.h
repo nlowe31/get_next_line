@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 22:32:35 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/13 22:55:31 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/14 17:06:37 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,9 @@ char	*ft_strnew(size_t size);
 int		tolower(int c);
 int		toupper(int c);
 char	*ft_strcpy(char *dst, const char *src);
+int		ft_strcmp(char *str1, char *str2);
+char	*strchr(const char *s, int c);
+char	*strrchr(const char *s, int c);
+char	*strnstr(const char *big, const char *little, size_t len);
 
 #endif

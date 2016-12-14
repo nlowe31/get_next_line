@@ -6,19 +6,13 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 17:19:53 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/12 17:27:18 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/14 17:05:05 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 #include <string.h>
-
-const int	ft_strlen(const char *str)
-{
-	if (*str)
-		return (1 + ft_strlen(str + 1));
-	return (0);
-}
 
 char		*strdup(const char *s1)
 {

@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strnstr.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/12 17:16:12 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/14 17:05:23 by nlowe            ###   ########.fr       */
+/*   Created: 2016/11/24 17:52:04 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/14 17:04:19 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-char	*strnstr(const char *big, const char *little, size_t len)
+int		ft_strcmp(char *str1, char *str2)
 {
-	int		i;
-
-	i = 0;
-	if (*little == '\0')
-		return ((char *)big);
-	while (len && *big)
+	if (*str1 == *str2)
 	{
-		if (*big == little[i])
-			i++;
-		else if (little[i] == '\0')
-			return ((char *)big);
-		else
-			i = 0;
-		len--;
-		big++;
+		if (str1 == '\0' && str2 == '\0')
+			return (0);
+		return (ft_strcmp((str1 + 1), (str2 + 1)));
 	}
-	return (NULL);
+	else
+		return (*str1 - *str2);
 }
