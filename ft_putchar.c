@@ -6,11 +6,12 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 16:03:52 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/14 17:26:30 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/14 17:31:54 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	ft_putchar(char c)
 {
