@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   memmove.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/14 15:00:00 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/14 15:06:08 by nlowe            ###   ########.fr       */
+/*   Created: 2016/12/15 18:35:11 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/15 21:52:39 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
+#include <stdlib.h>
+#include <string.h>
 
-void	*memmove(void *dst, const void *src, size_t len)
+#include <stdio.h>
+
+int		main(int ac, char **av)
 {
-	usigned char	ret[len];
-
-	ft_memcpy(ret, dst, len);
-	ft_memcpy(dst, src, len);
-	return (ret);
+	if (ac != 4)
+		return (0);
+	printf("Mine: %s\n", ft_memchr(av[1], av[2][0], atoi(av[3])));
+	printf("Machine: %s\n", memchr(av[1], av[2][0], atoi(av[3])));
+	return (0);
 }

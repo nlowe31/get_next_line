@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 22:07:10 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/15 21:44:10 by nlowe            ###   ########.fr       */
+/*   Created: 2016/12/15 18:56:15 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/15 21:53:05 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <string.h>
 
-void	*ft_memalloc(size_t size)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	void	*result;
-	int		i;
+	unsigned char	*ret;
 
-	i = 0;
-	if (!(result = malloc(size)))
-		return (NULL);
-	ft_bzero(result, size);
-	return (result);
+	ret = ft_memalloc(len + 1);
+	ft_memcpy(ret, dst, len);
+	ft_memcpy(dst, src, len);
+	return (dst);
 }

@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 22:32:35 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/15 18:52:12 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/15 21:55:47 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,10 @@
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
-
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n);
+void	*ft_memmove(void *dst, const void *src, size_t len);
+
+void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_atoi(char *str);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -40,5 +42,7 @@ int		ft_strcmp(char *str1, char *str2);
 char	*strchr(const char *s, int c);
 char	*strrchr(const char *s, int c);
 char	*strnstr(const char *big, const char *little, size_t len);
+void	ft_putchar(char c);
+void	ft_putstr(char *str);
 
 #endif
