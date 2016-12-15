@@ -6,13 +6,11 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 22:51:03 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/13 23:06:30 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/15 23:31:08 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
-#include <string.h>
 
 char	*ft_strcpy(char *dst, const char *src)
 {

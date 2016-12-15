@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 13:15:15 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/15 22:43:58 by nlowe            ###   ########.fr       */
+/*   Created: 2016/12/15 18:12:15 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/15 22:38:43 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "../libft.h"
 
-int		ft_strlen(const char *str)
+int		main(int ac, char **av)
 {
-	int		len;
-
-	len = 0;
-	while(str[len] != '\0')
-		len++;
-	return (len);
+	if (ac != 4)
+		return (0);
+	printf("Mine: %i\n", ft_memcmp(av[1], av[2], atoi(av[3])));
+	printf("Machine: %i\n", memcmp(av[1], av[2], atoi(av[3])));
+	return (0);
 }
