@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/10 11:05:31 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/15 18:31:52 by nlowe            ###   ########.fr       */
+/*   Created: 2016/12/15 18:12:15 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/15 18:33:31 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include "../libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int		main(int ac, char **av)
 {
-	ft_memset(s, 0, n);
+	if (ac != 2)
+		return (0);
+	printf("%s\n", av[1]);
+	ft_memset(av[1], '1', 1));
+	printf("%s\n", av[1]);
+	return (0);
 }
