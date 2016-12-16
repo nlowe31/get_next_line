@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/24 17:52:04 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/16 16:44:17 by nlowe            ###   ########.fr       */
+/*   Created: 2016/12/16 15:09:25 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/16 15:14:08 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strcmp(const char *s1, const char *s2)
+char	*ft_strchr(const char *s, int c)
 {
-	if (s1 == NULL && s2 == NULL)
-		return (0);
-	while (*s1 == *s2)
-	{
-		if (*s1 == '\0' && *s2 == '\0')
-			return (0);
-		s1++;
-		s2++;
-	}
-	return (*s1 - *s2);
+	while (*s != (char)c && *s != '\0')
+		s++;
+	if (*s == (char)c)
+		return ((char *)s);
+	else
+		return (NULL);
 }

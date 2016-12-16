@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strnstr.c                                          :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/12 17:16:12 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/14 17:05:23 by nlowe            ###   ########.fr       */
+/*   Created: 2016/12/15 22:48:56 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/16 16:04:04 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
+#include <stdio.h>
 #include <stdlib.h>
 
-char	*strnstr(const char *big, const char *little, size_t len)
+int		main(int ac, char **av)
 {
-	int		i;
+	if (ac != 3)
+		return (0);
 
-	i = 0;
-	if (*little == '\0')
-		return ((char *)big);
-	while (len && *big)
-	{
-		if (*big == little[i])
-			i++;
-		else if (little[i] == '\0')
-			return ((char *)big);
-		else
-			i = 0;
-		len--;
-		big++;
-	}
-	return (NULL);
+	printf("Mine: %i\nTheirs: %i\n", ft_strcmp(av[1], av[2]), strcmp(av[1], av[2]));
+	return (0);
 }

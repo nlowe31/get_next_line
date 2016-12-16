@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strrchr.c                                          :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/12 16:52:38 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/14 17:05:30 by nlowe            ###   ########.fr       */
+/*   Created: 2016/12/15 22:48:56 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/16 15:25:03 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
+#include <stdio.h>
 
-const char	*strchr(const char *s, int c)
+int		main(int ac, char **av)
 {
-	while (*s != (char)c && *s != '\0')
-		s++;
-	if (*s == (char)c)
-		return (s);
-	else
-		return (NULL);
-}
+	char	*mine;
+	char	*comp;
 
-char		*strrchr(const char *s, int c)
-{
-	if (strrchr(*s, c) == NULL)
-		return (NULL);
-	while (*s)
-		s++;
-	while (*s != (char)c)
-		s--;
-	return (s);
+	if (ac != 3)
+		return (0);
+
+	mine = ft_strstr(av[1], av[2]);
+	comp = strstr(av[1], av[2]);
+
+	printf("Mine: %s\nTheirs: %s\n", mine, comp);
+	return (0);
 }

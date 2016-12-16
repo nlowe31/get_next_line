@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 22:32:35 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/15 23:54:56 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/16 16:44:29 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,11 @@ char	*ft_strncpy(char *dst, const char *src, size_t len);
 char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strncat(char *s1, const char *s2, size_t n);
 size_t	ft_strlcat(char *dest, char *src, size_t size);
-
+char	*ft_strchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);
+char	*ft_strstr(const char *big, const char *little);
+char	*ft_strnstr(const char *big, const char *little, size_t len);
+int		ft_strcmp(const char *s1, const char *s2);
 
 int		ft_atoi(char *str);
 int		ft_isalnum(int c);
@@ -47,10 +51,6 @@ char	*ft_strnew(size_t size);
 //int		fttolower(int c);
 //int		toupper(int c);
 char	*ft_strcpy(char *dst, const char *src);
-int		ft_strcmp(char *str1, char *str2);
-//char	*strchr(const char *s, int c);
-//char	*strrchr(const char *s, int c);
-//char	*strnstr(const char *big, const char *little, size_t len);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
 
