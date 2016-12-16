@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 21:59:36 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/13 22:39:25 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/16 17:24:06 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,23 @@
 int		ft_atoi(char *str)
 {
 	int		result;
-	int		i;
-	int		pos_neg;
+	int		sign;
 
-	i = 0;
 	result = 0;
-	pos_neg = 1;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n' ||
-			str[i] == '\f' || str[i] == '\r' || str[i] == '\v')
-		i++;
-	if (str[i] == '+' && (str[i + 1] >= 48 && str[i + 1] <= 57))
-		i++;
-	if (str[i] == '-' && (str[i + 1] >= 48 && str[i + 1] <= 57))
+	sign = 1;
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '+' && (ft_isdigit(*(str + 1))))
+		str++;
+	if (*str == '-' && (ft_isdigit(*(str + 1))))
 	{
-		pos_neg = -1;
-		i++;
+		sign = -1;
+		str++;
 	}
-	while (str[i] >= 48 && str[i] <= 57)
+	while (ft_isdigit(*str))
 	{
-		result = (result * 10) + (str[i] - 48);
-		i++;
+		result = (result * 10) + (*str - 48);
+		str++;
 	}
-	return (result * pos_neg);
+	return (sign * result);
 }

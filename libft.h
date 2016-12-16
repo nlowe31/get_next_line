@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 22:32:35 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/16 16:44:29 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/16 17:34:23 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,18 @@ char	*ft_strrchr(const char *s, int c);
 char	*ft_strstr(const char *big, const char *little);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_strcmp(const char *s1, const char *s2);
-
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_atoi(char *str);
-int		ft_isalnum(int c);
+int		ft_isspace(int c);
 int		ft_isalpha(int c);
-int		ft_isascii(int c);
 int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+int		ft_isascii(int c);
 int		ft_isprint(int c);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+
+
 void	*ft_memalloc(size_t size);
 void	ft_memdel(char **ap);
 void	ft_strclr(char *s);
@@ -48,8 +53,6 @@ void	ft_strdel(char **as);
 void	ft_striter(char *s, void (*f)(char *));
 int		ft_strlen(const char *str);
 char	*ft_strnew(size_t size);
-//int		fttolower(int c);
-//int		toupper(int c);
 char	*ft_strcpy(char *dst, const char *src);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
