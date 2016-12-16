@@ -6,19 +6,18 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 11:15:45 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/13 22:40:11 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/16 17:49:00 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
-#include <string.h>
 
-void	ft_memdel(char **ap)
+void	ft_memdel(void **ap)
 {
 	if(ap)
 	{
-		free(ap);
-		*ap = NULL;
+		free(*ap);
+		ap = NULL;
 	}
 }

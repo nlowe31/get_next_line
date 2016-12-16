@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 22:32:35 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/16 17:34:23 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/16 17:50:35 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string.h>
 
+// libc functions
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
@@ -45,14 +46,15 @@ int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 
-
+// 42 functions
 void	*ft_memalloc(size_t size);
-void	ft_memdel(char **ap);
+void	ft_memdel(void **ap);
+char	*ft_strnew(size_t size);
+
 void	ft_strclr(char *s);
 void	ft_strdel(char **as);
 void	ft_striter(char *s, void (*f)(char *));
 int		ft_strlen(const char *str);
-char	*ft_strnew(size_t size);
 char	*ft_strcpy(char *dst, const char *src);
 void	ft_putchar(char c);
 void	ft_putstr(char *str);

@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/13 11:12:01 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/16 17:57:41 by nlowe            ###   ########.fr       */
+/*   Created: 2016/12/15 18:12:15 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/16 17:57:38 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
-#include <string.h>
+#include <stdio.h>
+#include "../libft.h"
 
-void	ft_strdel(char **as)
+int		main(void)
 {
-	if(as)
-	{
-		free(*as);
-		as = NULL;
-	}
+	char	**test;
+	char	*contents;
+
+	contents = malloc(4);
+	test = malloc(10);
+	test = &contents;
+
+	ft_strdel(test);
+
+	return (0);
 }
