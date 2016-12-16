@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/15 22:48:56 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/16 17:56:00 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/16 18:00:48 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int		main(int ac, char **av)
 	comp = strncat(comp, av[2], 4);
 
 	printf("Mine: %s\nTheirs: %s\n", mine, comp);
-	ft_strdel(&mine);
+	ft_strclr(mine);
+	ft_putchar('\n');
+	printf("Mine: %s\nTheirs: %s\n", mine, comp);
 	return (0);
 }

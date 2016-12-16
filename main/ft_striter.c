@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   striter_main.c                                     :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 22:17:58 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/13 23:15:01 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/16 18:10:59 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
 #include <stdio.h>
 #include <string.h>
-
-void	ft_striter(char *s, void (*f)(char *));
-
-void	ft_toupper(char *c)
-{
-	if ((*c) >= 'a' && (*c) <= 'z')
-		*c = (*c) - 32;
-}
 
 int		main(int ac, char **av)
 {
@@ -34,9 +26,9 @@ int		main(int ac, char **av)
 	ft_strcpy(test, av[1]);
 	printf("%s\n", test);
 	printf("Calling striter...\n");
-	ft_striter(test, ft_toupper);
+	ft_striter(test, ft_putstr);
 	printf("%s\n", test);
-	ft_memdel(&test);
+	ft_strdel(&test);
 	printf("%s\n", test);
 	return (0);
 }

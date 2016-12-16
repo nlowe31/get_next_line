@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 22:32:35 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/16 17:50:35 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/16 18:15:28 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,11 @@ int		ft_tolower(int c);
 void	*ft_memalloc(size_t size);
 void	ft_memdel(void **ap);
 char	*ft_strnew(size_t size);
-
-void	ft_strclr(char *s);
 void	ft_strdel(char **as);
+void	ft_strclr(char *s);
 void	ft_striter(char *s, void (*f)(char *));
+
+
 int		ft_strlen(const char *str);
 char	*ft_strcpy(char *dst, const char *src);
 void	ft_putchar(char c);
