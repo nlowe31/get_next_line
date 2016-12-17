@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/23 16:03:52 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/17 20:54:25 by nlowe            ###   ########.fr       */
+/*   Created: 2016/11/24 17:42:35 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/17 21:00:05 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putchar(char c)
+void	ft_putendl(char const *s)
 {
-	write(1, &c, 1);
+	while (*s)
+		ft_putchar(*s++);
+	ft_putchar('\n');
 }

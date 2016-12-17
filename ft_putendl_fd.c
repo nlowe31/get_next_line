@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/10 12:23:01 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/10 12:34:58 by nlowe            ###   ########.fr       */
+/*   Created: 2016/11/24 17:42:35 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/17 21:04:44 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <string.h>
+#include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n);
-int		ft_strlen(const char *str);
-
-int		main(int ac, char **av)
+void	ft_putendl_fd(char const *s, int fd)
 {
-	char	*src;
-	char	*dst;
-
-	if (ac != 2)
-		return (0);
-	src = av[1];
-	dst = NULL;
-	ft_memcpy(dst, src, ft_strlen(av[1]));
-	printf("%s\n", dst);
+	while (*s)
+		ft_putchar_fd(*s++, fd);
+	ft_putchar_fd('\n', fd);
 }
