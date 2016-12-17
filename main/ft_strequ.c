@@ -5,16 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/14 16:08:38 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/17 15:28:40 by nlowe            ###   ########.fr       */
+/*   Created: 2016/12/13 22:17:58 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/17 15:29:17 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
+#include <stdio.h>
+#include <string.h>
 
-int		ft_strequ(char const *s1, char const *s2)
+int		main(int ac, char **av)
 {
-	if (ft_strcmp(s1, s2) == 0)
-		return (1);
+	if (ac != 3)
+		return (0);
+	printf("%i\n", ft_strnequ(av[1], av[2], 4));
 	return (0);
 }

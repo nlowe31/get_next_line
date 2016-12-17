@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/14 16:08:38 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/17 15:28:40 by nlowe            ###   ########.fr       */
+/*   Created: 2016/12/17 15:47:10 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/17 15:55:02 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strequ(char const *s1, char const *s2)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	if (ft_strcmp(s1, s2) == 0)
-		return (1);
-	return (0);
+	char	*ret;
+
+	if (!s || start > ft_strlen(s) || len > ft_strlen(s))
+		return (NULL);
+	if (!(ret = ft_strnew(len)))
+		return (NULL);
+	ft_strncpy(ret, s, len);
+	return (ret);
 }

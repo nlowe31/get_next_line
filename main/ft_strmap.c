@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strequ.c                                        :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/14 16:08:38 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/17 15:28:40 by nlowe            ###   ########.fr       */
+/*   Created: 2016/12/13 22:17:58 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/17 15:20:43 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
+#include <stdio.h>
+#include <string.h>
 
-int		ft_strequ(char const *s1, char const *s2)
+int		main(int ac, char **av)
 {
-	if (ft_strcmp(s1, s2) == 0)
-		return (1);
+	char	*product;
+
+	if (ac != 2)
+		return (0);
+	product = ft_strmap(av[1], ft_toupper);
+	printf("%s\n", product);
 	return (0);
 }
