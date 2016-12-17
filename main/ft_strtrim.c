@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/17 15:47:10 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/17 17:04:42 by nlowe            ###   ########.fr       */
+/*   Created: 2016/12/15 18:35:11 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/17 17:39:15 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
+#include <stdlib.h>
+#include <string.h>
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+#include <stdio.h>
+
+int		main(int ac, char **av)
 {
-	char	*ret;
+	char	*test;
 
-	if (!s || start > (size_t)ft_strlen(s) || len > (size_t)ft_strlen(s))
-		return (NULL);
-	if (!(ret = ft_strnew(len)))
-		return (NULL);
-	ft_strncpy(ret, (s + start), len);
-	return (ret);
+	if (ac != 2)
+		return (0);
+	test = ft_strtrim(av[1]);
+	printf("%s\n", test);
+	return (0);
 }

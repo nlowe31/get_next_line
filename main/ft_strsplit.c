@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/17 15:47:10 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/17 17:04:42 by nlowe            ###   ########.fr       */
+/*   Created: 2016/12/15 18:35:11 by nlowe             #+#    #+#             */
+/*   Updated: 2016/12/17 18:34:30 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../libft.h"
+#include <stdlib.h>
+#include <string.h>
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+#include <stdio.h>
+
+void	print_tab(char **tab)
 {
-	char	*ret;
+	int		i;
 
-	if (!s || start > (size_t)ft_strlen(s) || len > (size_t)ft_strlen(s))
-		return (NULL);
-	if (!(ret = ft_strnew(len)))
-		return (NULL);
-	ft_strncpy(ret, (s + start), len);
-	return (ret);
+	i = 0;
+	while (tab[i])
+	{
+		ft_putstr(tab[i]);
+		ft_putchar('\n');
+		i++;
+	}
+}
+
+int		main(int ac, char **av)
+{
+	char	**tab;
+
+	if (ac != 3)
+		return (0);
+	tab = ft_strsplit(av[1], av[2][0]);
+	print_tab(tab);
+	return (0);
 }

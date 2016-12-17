@@ -6,13 +6,13 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 13:15:15 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/15 22:43:58 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/17 18:12:58 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	int		len;
 
