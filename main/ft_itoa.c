@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/15 22:48:56 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/17 20:01:06 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/18 12:36:20 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ int		main(int ac, char **av)
 	if (ac != 2)
 		return (0);
 	test = ft_itoa(atoi(av[1]));
-	ft_putstr(test);
+	ft_putendl(test);
 	return (0);
 }

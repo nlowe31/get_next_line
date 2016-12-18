@@ -6,9 +6,12 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/15 23:39:27 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/15 23:50:53 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/18 22:10:59 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+#include <stdlib.h>
 
 size_t	ft_strlcat(char *dest, char *src, size_t size)
 {
