@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 15:47:10 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/18 22:10:02 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/19 00:11:18 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ char			*ft_itoa(int n)
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
 	len = ft_numlen(n);
-	ret = ft_strnew(len);
+	if (!(ret = ft_strnew(len)))
+		return (NULL);
 	if (n < 0)
 	{
 		ret[0] = '-';

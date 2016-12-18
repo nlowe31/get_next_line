@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 11:00:38 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/16 17:50:27 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/18 23:05:10 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ char	*ft_strnew(size_t size)
 
 	if (!(str = (char *)malloc(sizeof(char) * (size + 1))))
 		return (NULL);
-	str = ft_memset(str, '\0', size);
+	str = ft_memset(str, '\0', size + 1);
 	return (str);
 }
