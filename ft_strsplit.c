@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 15:47:10 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/19 11:59:40 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/19 12:50:56 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static int		ft_word_count(char const *s, char c)
 	int		count;
 
 	count = 0;
+	if (c == 0)
+		return (1);
 	while (*s != '\0')
 	{
 		if (*s != c && *(s + 1) == c)
