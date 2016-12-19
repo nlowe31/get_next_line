@@ -6,7 +6,7 @@
 #    By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/17 21:11:30 by nlowe             #+#    #+#              #
-#    Updated: 2016/12/19 14:22:47 by nlowe            ###   ########.fr        #
+#    Updated: 2016/12/19 18:16:26 by nlowe            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ all: $(NAME)
 $(NAME):
 	gcc $(FLAGS) $(SRC) -c
 	ar rc $(NAME) $(O_FILES)
+	ranlib libft.a
 
 clean:
 	rm -f $(O_FILES)
