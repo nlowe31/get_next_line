@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/17 15:47:10 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/19 12:50:56 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/19 18:03:09 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,9 @@ static int		ft_word_count(char const *s, char c)
 	int		count;
 
 	count = 0;
-	if (c == 0)
-		return (1);
 	while (*s != '\0')
 	{
-		if (*s != c && *(s + 1) == c)
+		if (*s != c && (*(s + 1) == c || *(s + 1) == '\0'))
 			count++;
 		s++;
 	}
@@ -58,10 +56,10 @@ char			**ft_strsplit(char const *s, char c)
 		else
 		{
 			ret[i] = ft_strndup(s, ft_wordlen(s, c));
-			s = ft_strchr(s, c);
-			i++;
+			if (++i < words)
+				s = ft_strchr(s, c);
 		}
 	}
-	ret[i] = NULL;
+	ret[i] = 0;
 	return (ret);
 }
