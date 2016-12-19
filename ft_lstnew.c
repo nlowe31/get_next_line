@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/19 12:57:13 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/19 14:11:55 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/19 18:27:50 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list	*ret;
 
-	if(!(ret = (t_list *)malloc(sizeof(*ret))))
+	if (!(ret = (t_list *)malloc(sizeof(*ret))))
 		return (NULL);
 	ret->next = NULL;
 	if (content == NULL || content_size == 0)
