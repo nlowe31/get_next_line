@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/14 16:08:38 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/17 15:28:40 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/19 11:55:38 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int		ft_strequ(char const *s1, char const *s2)
 {
+	if (!(s1) || !(s2))
+		return (0);
 	if (ft_strcmp(s1, s2) == 0)
 		return (1);
 	return (0);
