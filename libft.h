@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/13 22:32:35 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/19 18:33:34 by nlowe            ###   ########.fr       */
+/*   Updated: 2016/12/23 17:09:10 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ char				*ft_itoa(int n);
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
+void				ft_puterr(char const *s);
 void				ft_putnbr(int n);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putstr_fd(char const *s, int fd);
