@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 16:38:35 by nlowe             #+#    #+#             */
-/*   Updated: 2017/01/30 16:56:36 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/01/30 18:05:04 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUFF_SIZE 100
+# define BUFF_SIZE 10
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-#include "libft.h"
+# include "libft.h"
 
 typedef struct		s_file
 {
@@ -30,6 +30,6 @@ typedef struct		s_file
 	struct s_file	*next;
 }					t_file;
 
-int		get_next_line(int const fd, char ** line);
+int					get_next_line(int const fd, char **line);
 
 #endif

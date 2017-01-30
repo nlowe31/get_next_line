@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 16:38:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/01/30 16:56:28 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/01/30 18:08:28 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,27 +40,20 @@ t_file	*add_file(t_file **list, int fd)
 	return (*list);
 }
 
-int		read_file(t_file *file, char ** ptr)
+int		read_file(t_file *file, char **ptr)
 {
 	char	buff[BUFF_SIZE + 1];
 	char	*line;
 	int		ret;
 
 	ft_strclr(buff);
-	ret = 1;
 	line = NULL;
-	if (file->extra/* && ft_strchr(file->extra, '\n')*/)
+	ret = 1;
+	if (file->extra && BUFF_SIZE > 1)
 	{
-		// ft_putendl("found extra");
-		// ft_putstr("strfchr: ");
-		// ft_putendl(ft_strfchr(file->extra, '\n'));
-		// ft_putstr("strdup: ");
-		// ft_putendl(ft_strdup(ft_strchr(file->extra, '\n')));
-		if (!(line = ft_strfchr(file->extra + 1, '\n')) ||
-			!(file->extra = ft_strdup(ft_strchr(file->extra, '\n'))))
+		if (!(line = ft_strfchr(file->extra + 1, '\n')))
 			return (-1);
-		(*ptr) = line;
-		return (1);
+		file->extra = ft_strchr(file->extra + 1, '\n');
 	}
 	while (!(ft_strchr(buff, '\n')) && ret)
 	{
@@ -69,19 +62,17 @@ int		read_file(t_file *file, char ** ptr)
 		buff[ret] = '\0';
 		if (!(line = ft_strjoin(line, buff)))
 			return (-1);
-		// ft_putendl(line);
 	}
-	if (!(file->extra = ft_strdup(ft_strchr(line, '\n'))) ||
+	if (!(file->extra = ft_strjoin(file->extra, ft_strchr(line, '\n'))) ||
 		!((line = ft_strfchr(line, '\n'))))
 		return (-1);
-	// ft_putendl(line);
 	(*ptr) = line;
 	if (ret == 0)
 		return (0);
 	return (1);
 }
 
-int		get_next_line(int const fd, char ** line)
+int		get_next_line(int const fd, char **line)
 {
 	static t_file	*list = NULL;
 	t_file			*temp;
