@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 16:52:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/01/28 17:29:11 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/01/30 16:15:49 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ char	*ft_strfchr(const char *s, int c)
 	size_t	len;
 
 	len = 0;
-	if (ft_strchr(s, c) == NULL)
+	if (!(s) || !(c))
 		return (NULL);
-	while (s[len] != (char)c)
+	if (ft_strchr(s, c) == NULL)
+		return (ft_strdup(s));
+	while (s[len] && s[len] != (char)c)
 		len++;
 	return (ft_strndup(s, len));
 }
