@@ -6,7 +6,7 @@
 #    By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/17 21:11:30 by nlowe             #+#    #+#              #
-#    Updated: 2017/01/30 17:26:42 by nlowe            ###   ########.fr        #
+#    Updated: 2017/01/30 17:30:44 by nlowe            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,7 +84,7 @@ OBJ = $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
 
 CC = gcc
 CFLAGS  = -Werror -Wall -Wextra
-IFLAGS = -I.
+IFLAGS = -Iincludes
 
 all: $(NAME)
 
