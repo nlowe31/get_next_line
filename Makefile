@@ -6,7 +6,7 @@
 #    By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/17 21:11:30 by nlowe             #+#    #+#              #
-#    Updated: 2017/01/30 17:24:11 by nlowe            ###   ########.fr        #
+#    Updated: 2017/01/30 17:26:42 by nlowe            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,19 +89,19 @@ IFLAGS = -I.
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rc $@ $(OBJ)
-	ranlib $@
+	@ar rc $@ $(OBJ)
+	@ranlib $@
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@mkdir -p $(OBJ_PATH)
 	@$(CC) $(CFLAGS) $(IFLAGS) -o $@ -c $^
 
 clean:
-	rm -f $(OBJ)
-	rm -d -f $(OBJ_PATH)
+	@rm -f $(OBJ)
+	@rm -d -f $(OBJ_PATH)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all
 
