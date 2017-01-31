@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strfchr.c                                       :+:      :+:    :+:   */
+/*   ft_strsep.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 16:52:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/01/30 17:47:59 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/01/31 15:56:06 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strfchr(const char *s, int c)
+char	*ft_strsep(char **str, const char c)
 {
-	size_t	len;
+	char	*temp;
 
-	len = 0;
-	if (!(s) || !(c))
-		return (NULL);
-	if (ft_strchr(s, c) == NULL)
-		return (ft_strdup(s));
-	while (s[len] && s[len] != (char)c)
-		len++;
-	return (ft_strndup(s, len));
+	temp = *str;
+	while (**str && **str != c)
+		(*str)++;
+	if (**str == c)
+	{
+		**str = '\0';
+		(*str)++;
+		return (temp);
+	}
+	else
+	{
+		str = NULL;
+		return (temp);
+	}
 }
