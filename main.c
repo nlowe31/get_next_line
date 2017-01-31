@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 17:43:02 by nlowe             #+#    #+#             */
-/*   Updated: 2017/01/30 16:40:36 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/01/31 17:12:14 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ int		main(void)
 	ft_putnbr(get_next_line(fd[0], &str));
 	ft_putchar(':');
 	ft_putendl(str);
-	// ft_putnbr(0);
-	// ft_putchar(':');
-	// ft_putnbr(get_next_line(0, &str));
-	// ft_putchar(':');
-	// ft_putendl(str);
+	ft_putnbr(0);
+	ft_putchar(':');
+	ft_putnbr(get_next_line(0, &str));
+	ft_putchar(':');
+	ft_putendl(str);
 	ft_putnbr(fd[2]);
 	ft_putchar(':');
 	ft_putnbr(get_next_line(fd[2], &str));
@@ -53,5 +53,6 @@ int		main(void)
 	ft_putnbr(get_next_line(fd[1], &str));
 	ft_putchar(':');
 	ft_putendl(str);
+
 	return (0);
 }
