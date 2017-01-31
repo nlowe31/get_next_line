@@ -6,7 +6,7 @@
 #    By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/17 21:11:30 by nlowe             #+#    #+#              #
-#    Updated: 2017/01/30 17:30:44 by nlowe            ###   ########.fr        #
+#    Updated: 2017/01/31 16:07:58 by nlowe            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,7 @@ SRC_NAME = ft_atoi.c \
 			ft_strnew.c \
 			ft_strnstr.c \
 			ft_strrchr.c \
+			ft_strsep.c \
 			ft_strsplit.c \
 			ft_strstr.c \
 			ft_strsub.c \

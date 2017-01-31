@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 16:52:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/01/31 15:56:06 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/01/31 16:06:42 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_strsep(char **str, const char c)
 {
 	char	*temp;
 
+	if (!c || !str || !*str)
+		return (NULL);
 	temp = *str;
 	while (**str && **str != c)
 		(*str)++;
@@ -25,9 +27,6 @@ char	*ft_strsep(char **str, const char c)
 		(*str)++;
 		return (temp);
 	}
-	else
-	{
-		str = NULL;
-		return (temp);
-	}
+	str = NULL;
+	return (temp);
 }
