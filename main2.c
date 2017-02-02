@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 17:43:02 by nlowe             #+#    #+#             */
-/*   Updated: 2017/01/31 18:46:51 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/02/02 15:00:53 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int		main(int ac, char **av)
 	char	*line2;
 	int		fd1;
 	int		fd2;
+	int		i;
 
+	i = 0;
 	line1 = NULL;
 	line2 = NULL;
 	if (ac != 3)
@@ -28,14 +30,21 @@ int		main(int ac, char **av)
 		fd1 = 0;
 	if ((fd2 = open(av[2], O_RDONLY)) <= 0)
 		fd2 = 0;
-	while (get_next_line(fd1, &line1))
+	while (i < 10)
 	{
-		ft_putendl(line1);
+		if (i % 2 == 0)
+		{
+			get_next_line(fd1, &line1);
+			ft_putendl(line1);
+		}
+		else
+		{
+			get_next_line(fd2, &line2);
+			ft_putendl(line2);
+		}
+		i++;
 	}
-	ft_putendl(line1);
-	ft_putnbr(get_next_line(fd1, &line1));
-	ft_putchar('\n');
 	close(fd1);
-	ft_putnbr(get_next_line(fd1, &line1));
+	close(fd2);
 	return (0);
 }

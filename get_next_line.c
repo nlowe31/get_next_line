@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 16:38:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/01/31 20:04:36 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/02/02 15:39:47 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ t_file	*new_file(int fd)
 		return (NULL);
 	file->next = NULL;
 	file->fd = fd;
-	if (!(file->extra = ft_strnew(BUFF_SIZE)))
-		return (NULL);
+	file->extra = NULL;
 	return (file);
 }
 
@@ -42,6 +41,9 @@ int		read_file(t_file *file, char **ptr)
 
 	ret = 1;
 	ft_bzero(buff, BUFF_SIZE + 1);
+	if (file->extra)
+		if (!(file->extra = ft_strdup(file->extra)))
+			return (-1);
 	while (!(ft_strchr(buff, '\n')) && ret)
 	{
 		if ((ret = read(file->fd, buff, BUFF_SIZE)) < 0)
@@ -50,10 +52,10 @@ int		read_file(t_file *file, char **ptr)
 		temp = file->extra;
 		if (!(file->extra = ft_strjoin(file->extra, buff)))
 			return (-1);
-		//free(&temp);
+		if (temp)
+			free(temp);
 	}
-	(*ptr) = ft_strsep(&(file->extra), '\n');
-	if (ret == 0 && ft_strlen(*ptr) == 0 && ft_strlen(file->extra) == 0)
+	if (!((*ptr) = ft_strsep(&(file->extra), '\n')) && ret == 0)
 		return (0);
 	return (1);
 }
