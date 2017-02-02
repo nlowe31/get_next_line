@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsep.c                                        :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/12 16:52:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/02/02 15:35:48 by nlowe            ###   ########.fr       */
+/*   Created: 2016/11/30 22:07:10 by nlowe             #+#    #+#             */
+/*   Updated: 2017/02/02 15:37:33 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
+#include <string.h>
 
-char	*ft_strsep(char **str, const char c)
+void	*ft_realloc(void *ptr, size_t size)
 {
-	char	*temp;
+	void	*ret;
 
-	if (!c || !str || !(*str) || !(**str))
-		return (NULL);
-	temp = *str;
-	while (**str && **str != c)
-		(*str)++;
-	if (**str == c)
+	if (size == 0 && ptr)
 	{
-		**str = '\0';
-		(*str)++;
-		return (temp);
+		if (!(ret = (void *)malloc(1)))
+			return (NULL);
+		ft_memdel(&ptr);
+		return (ret);
 	}
-	str = NULL;
-	return (temp);
+	if (!(ret = (void *)malloc(size)))
+		return (NULL);
+	if (ptr)
+	{
+		ft_memcpy(ret, ptr, size);
+		ft_memdel(&ptr);
+	}
+	return (ret);
 }
