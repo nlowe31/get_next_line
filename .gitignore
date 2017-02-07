@@ -2,3 +2,8 @@
 *.o
 .DS_Store
 *.txt
+*
+!/**/
+!*.*
+!auteur
+!Makefile
