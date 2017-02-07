@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/15 22:45:22 by nlowe             #+#    #+#             */
-/*   Updated: 2016/12/17 17:37:54 by nlowe            ###   ########.fr       */
+/*   Created: 2017/02/04 19:59:56 by nlowe             #+#    #+#             */
+/*   Updated: 2017/02/07 10:49:21 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
-#include <string.h>
+#include "get_next_line.h"
+#include <stdio.h>
 
-char	*ft_strndup(const char *s1, size_t n)
+int		main(void)
 {
-	char	*s2;
-	int		i;
+	char	*filename;
+	char	*line;
+	int		fd;
+	int		ret;
 
-	i = 0;
-	if (!(s2 = ft_strnew(n)))
-		return (NULL);
-	while (n-- > 0 && s1[i] != '\0')
+	while (get_next_line(0, &filename))
 	{
-		s2[i] = s1[i];
-		i++;
+		ret = 1;
+		fd = open(filename, O_RDONLY);
+		while (ret > 0)
+		{
+			ret = get_next_line(fd, &line);
+			ft_putnbr(ret);
+			ft_putstr(": ");
+			ft_putendl(line);
+			ft_strclr(line);
+		}
+		close(fd);
 	}
-	s2[i] = '\0';
-	return (s2);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 16:38:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/02/05 16:43:21 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/02/07 10:41:09 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ int		get_next_line(int const fd, char **line)
 
 	if (fd < 0 || !line || BUFF_SIZE < 1)
 		return (-1);
-	*line = NULL;
 	temp = list;
 	while (temp)
 	{
