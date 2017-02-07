@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/04 19:59:56 by nlowe             #+#    #+#             */
-/*   Updated: 2017/02/07 10:49:21 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/02/07 11:32:35 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		main(void)
 			ft_putendl(line);
 			ft_strclr(line);
 		}
+		ft_putchar('\n');
 		close(fd);
 	}
 	return (0);
