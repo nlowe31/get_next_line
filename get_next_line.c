@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 16:38:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/02/02 16:49:59 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/02/05 16:43:21 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,8 @@ int		read_file(t_file *file, char **ptr)
 		if (temp)
 			free(temp);
 	}
-	if (!((*ptr) = ft_strsep(&(file->extra), '\n')) && ret == 0)
+	if (!((*ptr) = ft_strsep(&(file->extra), '\n')) &&
+		ft_strlen(file->extra) == 0 && ret == 0)
 		return (0);
 	return (1);
 }
@@ -67,6 +68,7 @@ int		get_next_line(int const fd, char **line)
 
 	if (fd < 0 || !line || BUFF_SIZE < 1)
 		return (-1);
+	*line = NULL;
 	temp = list;
 	while (temp)
 	{

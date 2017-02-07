@@ -6,7 +6,7 @@
 #    By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/17 21:11:30 by nlowe             #+#    #+#              #
-#    Updated: 2017/01/31 16:07:58 by nlowe            ###   ########.fr        #
+#    Updated: 2017/02/05 16:40:19 by nlowe            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,8 +98,8 @@ $(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
 	@$(CC) $(CFLAGS) $(IFLAGS) -o $@ -c $^
 
 clean:
-	@rm -f $(OBJ)
-	@rm -d -f $(OBJ_PATH)
+	@rm -rf $(OBJ)
+	@rm -d -rf $(OBJ_PATH)
 
 fclean: clean
 	@rm -f $(NAME)
