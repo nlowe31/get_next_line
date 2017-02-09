@@ -6,14 +6,14 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 16:38:35 by nlowe             #+#    #+#             */
-/*   Updated: 2017/02/07 13:46:11 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/02/09 13:22:35 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# define BUFF_SIZE 1
+# define BUFF_SIZE 4
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
