@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsep.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/12 16:52:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/02/15 18:32:35 by nlowe            ###   ########.fr       */
+/*   Created: 2017/02/04 19:59:56 by nlowe             #+#    #+#             */
+/*   Updated: 2017/02/15 16:51:54 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "get_next_line.h"
+#include <stdio.h>
 
-char	*ft_strsep(char **str, const char c)
+int		main(void)
 {
-	char	*temp;
+	char	*filename;
+	char	*line;
+	int		fd;
+	int		ret;
+	int		run;
 
-	if (!c || !str || !(*str))
-		return (NULL);
-	temp = *str;
-	while (**str && **str != c)
-		(*str)++;
-	if (**str == c)
+	run = 1;
+	while (run)
 	{
-		**str = '\0';
-		(*str)++;
-		return (temp);
+		ft_putstr("enter filename: ");
+		run = get_next_line(0, &filename);
+		ret = 1;
+		fd = open(filename, O_RDONLY);
+		while (ret > 0)
+		{
+			ret = get_next_line(fd, &line);
+			printf("%i: %s\n", ret, line);
+			free(line);
+		}
+		ft_putchar('\n');
+		close(fd);
 	}
-	*str = NULL;
-	return (temp);
+	return (0);
 }

@@ -6,11 +6,12 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 16:38:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/02/09 13:37:52 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/02/15 19:36:20 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 t_file	*new_file(int fd)
 {
@@ -24,13 +25,15 @@ t_file	*new_file(int fd)
 	return (file);
 }
 
-void	add_file(t_file **list, int fd)
+int		add_file(t_file **list, int fd)
 {
 	t_file	*temp;
 
-	temp = new_file(fd);
+	if (!(temp = new_file(fd)))
+		return (-1);
 	temp->next = (*list);
 	(*list) = temp;
+	return (1);
 }
 
 int		read_file(t_file *file, char **ptr)
@@ -41,9 +44,13 @@ int		read_file(t_file *file, char **ptr)
 
 	ret = 1;
 	ft_bzero(buff, BUFF_SIZE + 1);
-	if (file->extra)
+	printf("extra, 1 (%zu): %s\n", ft_strlen(file->extra), file->extra);
+	//ft_putstr(file->extra);
+	// if (file->extra)
 		if (!(file->extra = ft_strdup(file->extra)))
-			return (-1);
+			if (!(file->extra = ft_strnew(0)))
+				return (-1);
+	printf("extra, 2 (%zu): %s\n", ft_strlen(file->extra), file->extra);
 	while (!(ft_strchr(buff, '\n')) && ret)
 	{
 		if ((ret = read(file->fd, buff, BUFF_SIZE)) < 0)
@@ -55,8 +62,11 @@ int		read_file(t_file *file, char **ptr)
 		if (temp)
 			free(temp);
 	}
-	if (!((*ptr) = ft_strsep(&(file->extra), '\n')) &&
-		ft_strlen(file->extra) == 0 && ret == 0)
+	printf("extra, 3 (%zu): %s\n", ft_strlen(file->extra), file->extra);
+	if (!(*ptr = ft_strsep(&(file->extra), '\n')))
+		*ptr = ft_strnew(0);
+	printf("extra, 4 (%zu): %s\n", ft_strlen(file->extra), file->extra);
+	if (ft_strlen(*ptr) == 0 && ft_strlen(file->extra) == 0 && ret == 0)
 		return (0);
 	return (1);
 }
@@ -75,6 +85,7 @@ int		get_next_line(int const fd, char **line)
 			return (read_file(temp, line));
 		temp = temp->next;
 	}
-	add_file(&list, fd);
+	if (add_file(&list, fd) < 0)
+		return (-1);
 	return (read_file(list, line));
 }
