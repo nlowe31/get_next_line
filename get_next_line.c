@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 16:38:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/02/16 21:41:01 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/02/16 21:43:37 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,9 @@ int		read_file(t_file *file, char **ptr)
 
 	ret = 1;
 	ft_bzero(buff, BUFF_SIZE + 1);
-//	printf("extra, 1 (%zu): %s\n", ft_strlen(file->extra), file->extra);
-	//ft_putstr(file->extra);
-	// if (file->extra)
 	if (!(file->extra = ft_strdup(file->extra)))
 		if (!(file->extra = ft_strnew(0)))
 			return (-1);
-	//printf("extra, 2 (%zu): %s\n", ft_strlen(file->extra), file->extra);
 	while (!(ft_strchr(file->extra, '\n')) && ret)
 	{
 		if ((ret = read(file->fd, buff, BUFF_SIZE)) < 0)
@@ -61,11 +57,8 @@ int		read_file(t_file *file, char **ptr)
 			return (-1);
 		free(temp);
 	}
-//	printf("extra, 3 (%zu): %s\n", ft_strlen(file->extra), file->extra);
-	// if (!(*ptr = ft_strsep(&(file->extra), '\n')))
-	// 	*ptr = ft_strnew(0);
-	//printf("extra, 4 (%zu): %s\n", ft_strlen(file->extra), file->extra);
-	if (!(*ptr = ft_strsep(&(file->extra), '\n')) && ft_strlen(file->extra) == 0 && ret == 0)
+	if (!(*ptr = ft_strsep(&(file->extra), '\n'))
+		&& ft_strlen(file->extra) == 0 && ret == 0)
 		return (0);
 	return (1);
 }
