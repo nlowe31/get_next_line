@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 16:38:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/02/15 19:36:20 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/02/16 21:41:01 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,14 @@ int		read_file(t_file *file, char **ptr)
 
 	ret = 1;
 	ft_bzero(buff, BUFF_SIZE + 1);
-	printf("extra, 1 (%zu): %s\n", ft_strlen(file->extra), file->extra);
+//	printf("extra, 1 (%zu): %s\n", ft_strlen(file->extra), file->extra);
 	//ft_putstr(file->extra);
 	// if (file->extra)
-		if (!(file->extra = ft_strdup(file->extra)))
-			if (!(file->extra = ft_strnew(0)))
-				return (-1);
-	printf("extra, 2 (%zu): %s\n", ft_strlen(file->extra), file->extra);
-	while (!(ft_strchr(buff, '\n')) && ret)
+	if (!(file->extra = ft_strdup(file->extra)))
+		if (!(file->extra = ft_strnew(0)))
+			return (-1);
+	//printf("extra, 2 (%zu): %s\n", ft_strlen(file->extra), file->extra);
+	while (!(ft_strchr(file->extra, '\n')) && ret)
 	{
 		if ((ret = read(file->fd, buff, BUFF_SIZE)) < 0)
 			return (-1);
@@ -59,14 +59,13 @@ int		read_file(t_file *file, char **ptr)
 		temp = file->extra;
 		if (!(file->extra = ft_strjoin(file->extra, buff)))
 			return (-1);
-		if (temp)
-			free(temp);
+		free(temp);
 	}
-	printf("extra, 3 (%zu): %s\n", ft_strlen(file->extra), file->extra);
-	if (!(*ptr = ft_strsep(&(file->extra), '\n')))
-		*ptr = ft_strnew(0);
-	printf("extra, 4 (%zu): %s\n", ft_strlen(file->extra), file->extra);
-	if (ft_strlen(*ptr) == 0 && ft_strlen(file->extra) == 0 && ret == 0)
+//	printf("extra, 3 (%zu): %s\n", ft_strlen(file->extra), file->extra);
+	// if (!(*ptr = ft_strsep(&(file->extra), '\n')))
+	// 	*ptr = ft_strnew(0);
+	//printf("extra, 4 (%zu): %s\n", ft_strlen(file->extra), file->extra);
+	if (!(*ptr = ft_strsep(&(file->extra), '\n')) && ft_strlen(file->extra) == 0 && ret == 0)
 		return (0);
 	return (1);
 }
