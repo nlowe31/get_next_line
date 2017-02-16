@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/12 16:52:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/02/02 15:35:48 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/02/16 21:36:19 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ char	*ft_strsep(char **str, const char c)
 		(*str)++;
 		return (temp);
 	}
-	str = NULL;
+	*str = NULL;
 	return (temp);
 }

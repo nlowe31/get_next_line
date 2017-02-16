@@ -6,11 +6,12 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 16:38:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/02/09 13:37:52 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/02/16 21:45:14 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <stdio.h>
 
 t_file	*new_file(int fd)
 {
@@ -24,13 +25,15 @@ t_file	*new_file(int fd)
 	return (file);
 }
 
-void	add_file(t_file **list, int fd)
+int		add_file(t_file **list, int fd)
 {
 	t_file	*temp;
 
-	temp = new_file(fd);
+	if (!(temp = new_file(fd)))
+		return (-1);
 	temp->next = (*list);
 	(*list) = temp;
+	return (1);
 }
 
 int		read_file(t_file *file, char **ptr)
@@ -41,10 +44,10 @@ int		read_file(t_file *file, char **ptr)
 
 	ret = 1;
 	ft_bzero(buff, BUFF_SIZE + 1);
-	if (file->extra)
-		if (!(file->extra = ft_strdup(file->extra)))
+	if (!(file->extra = ft_strdup(file->extra)))
+		if (!(file->extra = ft_strnew(0)))
 			return (-1);
-	while (!(ft_strchr(buff, '\n')) && ret)
+	while (!(ft_strchr(file->extra, '\n')) && ret)
 	{
 		if ((ret = read(file->fd, buff, BUFF_SIZE)) < 0)
 			return (-1);
@@ -52,11 +55,10 @@ int		read_file(t_file *file, char **ptr)
 		temp = file->extra;
 		if (!(file->extra = ft_strjoin(file->extra, buff)))
 			return (-1);
-		if (temp)
-			free(temp);
+		free(temp);
 	}
-	if (!((*ptr) = ft_strsep(&(file->extra), '\n')) &&
-		ft_strlen(file->extra) == 0 && ret == 0)
+	if (!(*ptr = ft_strsep(&(file->extra), '\n'))
+		&& ft_strlen(file->extra) == 0 && ret == 0)
 		return (0);
 	return (1);
 }
@@ -75,6 +77,7 @@ int		get_next_line(int const fd, char **line)
 			return (read_file(temp, line));
 		temp = temp->next;
 	}
-	add_file(&list, fd);
+	if (add_file(&list, fd) < 0)
+		return (-1);
 	return (read_file(list, line));
 }
