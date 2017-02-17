@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/04 19:59:56 by nlowe             #+#    #+#             */
-/*   Updated: 2017/02/15 19:12:43 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/02/17 14:31:09 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		main(int ac, char **av)
 		{
 			ret = get_next_line(fd, &line);
 			printf("%i: %s\n", ret, line);
-		//	free(line);
+			free(line);
 		}
 		printf("\n ===\n|EOF|\n ===\n");
 		close(fd);

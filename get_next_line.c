@@ -6,12 +6,11 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 16:38:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/02/16 21:57:05 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/02/17 14:34:21 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 t_file	*new_file(int fd)
 {
@@ -44,7 +43,7 @@ int		read_file(t_file *file, char **ptr)
 
 	ret = 1;
 	ft_bzero(buff, BUFF_SIZE + 1);
-	if (!(file->extra = ft_strdup(file->extra)))
+	if (!(file->extra))
 		if (!(file->extra = ft_strnew(0)))
 			return (-1);
 	while (!(ft_strchr(file->extra, '\n')) && ret)
@@ -60,6 +59,7 @@ int		read_file(t_file *file, char **ptr)
 	if (!(*ptr = ft_strsep(&(file->extra), '\n'))
 		&& ft_strlen(file->extra) == 0 && ret == 0)
 		return (0);
+	file->extra = ft_strdup(file->extra);
 	return (1);
 }
 
