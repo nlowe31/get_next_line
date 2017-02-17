@@ -6,7 +6,7 @@
 /*   By: nlowe <nlowe@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/26 16:38:38 by nlowe             #+#    #+#             */
-/*   Updated: 2017/02/17 14:35:47 by nlowe            ###   ########.fr       */
+/*   Updated: 2017/02/17 14:50:40 by nlowe            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,18 @@ int		add_file(t_file **list, int fd)
 	return (1);
 }
 
+char	*cut(t_file *file)
+{
+	char	*temp;
+	char	*ret;
+
+	temp = file->extra;
+	ret = ft_strdup(ft_strsep(&(file->extra), '\n'));
+	file->extra = ft_strdup(file->extra);
+	free(temp);
+	return (ret);
+}
+
 int		read_file(t_file *file, char **ptr)
 {
 	char	buff[BUFF_SIZE + 1];
@@ -56,10 +68,8 @@ int		read_file(t_file *file, char **ptr)
 			return (-1);
 		free(temp);
 	}
-	if (!(*ptr = ft_strsep(&(file->extra), '\n'))
-		&& ft_strlen(file->extra) == 0 && ret == 0)
+	if (!(*ptr = cut(file)) && ft_strlen(file->extra) == 0 && ret == 0)
 		return (0);
-	file->extra = ft_strdup(file->extra);
 	return (1);
 }
 
